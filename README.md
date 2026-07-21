@@ -109,6 +109,18 @@ For news/release/trend beats where a terminal would feel forced. Builds layered 
 
 ## Install
 
+### Don't have Remotion yet? Full setup in one command
+
+Scaffolds a fresh Remotion project **and** installs all the skills (this repo's four + the official Remotion skill) in one go:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/liamrjohnston30/remotion-motion-graphics-skill/main/install.sh | bash
+```
+
+Pass a project name if you want: `... | bash -s -- my-project`. Run it inside an existing Remotion project and it skips scaffolding and just installs the skills. Cloned this repo instead? Same thing: `bash install.sh`. ([Read the script](install.sh) — it's ~50 lines: `create-video` + `skills add`, nothing else.)
+
+### Already have a project? Just add the skills
+
 **One command, from any terminal:**
 
 ```bash
