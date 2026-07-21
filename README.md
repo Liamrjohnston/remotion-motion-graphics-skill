@@ -171,6 +171,8 @@ npx skills add remotion-dev/skills
 
 The agent handles the rest: it reviews reference material, writes a beat map, builds the scene in world coordinates, keyframes the camera, typechecks, renders QA stills, and delivers a review MP4.
 
+**Want to see what real prompting looks like?** Read **[docs/prompt-threads.md](docs/prompt-threads.md)** — condensed threads from real production sessions showing the full loop for four of the example clips: the initial prompt, the first render, the blunt feedback ("the mascot is cut off," "that looks like a checklist, not a terminal"), the revisions, and the approved final. First renders are rarely perfect; the threads show how little feedback it takes to get there.
+
 ## How the system works
 
 The four skills form a pipeline the agent walks through on every request:
@@ -194,6 +196,8 @@ The four skills form a pipeline the agent walks through on every request:
 ## Repository structure
 
 ```
+docs/
+└── prompt-threads.md     # Real request → feedback → revision threads
 skills/
 ├── motion-graphics/      # Taste layer: visual language, timing, patterns
 ├── cinematic-camera/     # Movement layer: camera rig + choreography
