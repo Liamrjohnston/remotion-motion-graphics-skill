@@ -5,6 +5,15 @@ description: Continuous-scene camera-rig style and approved-reference review pro
 
 # Cinematic Camera
 
+## Example output
+
+Clips built by an agent following this skill — one continuous world, a keyframed camera traveling through it (click for full MP4):
+
+<p>
+  <a href="../../examples/openmontage-hook.mp4"><img src="../../previews/openmontage-hook.gif" alt="Logo-driven hook with continuous camera" width="24%"/></a>
+  <a href="../../examples/smartlead-prewarmed-burn.mp4"><img src="../../previews/smartlead-prewarmed-burn.gif" alt="Cinematic product story" width="43%"/></a>
+</p>
+
 A movement system for Remotion graphics: instead of disconnected panels popping in and out of a void, build one continuous scene and move a camera through it. Use for most renders unless the request explicitly calls for a static composition.
 
 ## Approved-reference gate

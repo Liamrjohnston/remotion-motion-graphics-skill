@@ -7,6 +7,15 @@ metadata:
 
 # Terminal Inserts
 
+## Example output
+
+Clips built by an agent following this skill (click for full MP4):
+
+<p>
+  <a href="assets/examples/terminal-install.mp4"><img src="../../previews/terminal-install.gif" alt="Authentic terminal skill install" width="43%"/></a>
+  <a href="../../examples/kickbacks-spinner-terminals.mp4"><img src="../../previews/kickbacks-spinner-terminals.gif" alt="Parallel agent terminals" width="24%"/></a>
+</p>
+
 Use this with the Remotion skill and the `motion-graphics` skill when making carousel/body-slide inserts that should look like polished terminal/product UI — especially for Claude Code, Codex, MCP, agents, skills, repo workflows, and automation demos.
 
 ## Goal

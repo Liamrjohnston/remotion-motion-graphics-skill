@@ -7,6 +7,14 @@ metadata:
 
 # Article Highlights
 
+## Example output
+
+The approved reference render for this skill — an editorial card that blurs in, slowly zooms with a subtle 3D tilt, then draws hand-drawn highlighter strokes behind the key phrases (click for full MP4):
+
+<p>
+  <a href="assets/examples/article-highlight.mp4"><img src="../../previews/article-highlight.gif" alt="Article highlight editorial card" width="55%"/></a>
+</p>
+
 Use this with the Remotion skill and the `motion-graphics` skill when a carousel slide should feel like an editorial/news/article screenshot rather than a terminal demo.
 
 Use this pattern for:

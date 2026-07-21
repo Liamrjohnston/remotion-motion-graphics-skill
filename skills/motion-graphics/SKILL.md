@@ -7,6 +7,15 @@ metadata:
 
 # Motion Graphics for AI Videos
 
+## Example output
+
+Clips built by an agent following this skill (click for full MP4):
+
+<p>
+  <a href="../../examples/tsenta-apply-faster.mp4"><img src="../../previews/tsenta-apply-faster.gif" alt="Old way vs AI way comparison" width="24%"/></a>
+  <a href="../../examples/openmontage-tool-chaos.mp4"><img src="../../previews/openmontage-tool-chaos.gif" alt="Tool chaos collapsing into one system" width="43%"/></a>
+</p>
+
 Use this alongside the official Remotion best-practices skill. The official skill gives API correctness; this skill gives taste, repeatable patterns, and production constraints for short-form and long-form AI education content.
 
 ## Prime Directive
