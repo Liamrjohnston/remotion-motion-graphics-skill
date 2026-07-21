@@ -6,15 +6,24 @@ These skills were battle-tested by [Promptible](https://promptible.io) producing
 
 ## Examples
 
-All three clips were built entirely in Remotion/React by an agent using these skills:
+All three clips were built entirely in Remotion/React by an agent using these skills. Click any preview for the full-quality MP4.
 
-| Example | What it shows |
-| --- | --- |
-| [`examples/openmontage-hook.mp4`](examples/openmontage-hook.mp4) | Logo-driven hook with continuous camera movement |
-| [`examples/tsenta-apply-faster.mp4`](examples/tsenta-apply-faster.mp4) | Old-way-vs-AI-way comparison with real product UI |
-| [`examples/kickbacks-same-run-editor.mp4`](examples/kickbacks-same-run-editor.mp4) | Product workflow demo inside one camera world |
-
-Click any file to watch it on GitHub.
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="examples/openmontage-hook.mp4"><img src="previews/openmontage-hook.gif" alt="OpenMontage hook" width="100%"/></a>
+      <br/><sub><b>Logo-driven hook</b> — continuous camera movement</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="examples/tsenta-apply-faster.mp4"><img src="previews/tsenta-apply-faster.gif" alt="Tsenta apply faster" width="100%"/></a>
+      <br/><sub><b>Old way vs AI way</b> — comparison with real product UI</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="examples/kickbacks-same-run-editor.mp4"><img src="previews/kickbacks-same-run-editor.gif" alt="Kickbacks same-run editor" width="100%"/></a>
+      <br/><sub><b>Product workflow demo</b> — one continuous camera world</sub>
+    </td>
+  </tr>
+</table>
 
 ## What's inside
 
