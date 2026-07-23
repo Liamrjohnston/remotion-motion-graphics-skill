@@ -1,70 +1,107 @@
 ---
 name: "motion-graphics"
-description: "Enforced Remotion art-direction workflow with bundled verified references, build preflight, independent criticism, and delivery gates."
+description: "Add cached official-asset and product research preflight before reference selection and build authorization."
 ---
 
 # Motion Graphics for AI Videos
 
-Use with `remotion-best-practices` and `cinematic-camera`. This skill owns intake, reference selection, authenticity, visual quality, and delivery authorization.
+Use with `remotion-best-practices` and `cinematic-camera`. This skill owns intake, research, authentic assets, reference selection, visual quality, and delivery authorization.
 
 ## Hard execution contract
 
-Every build must pass the included gate script.
+Every build must pass `scripts/promptible-gate.mjs`.
 
-Locate this loaded skill directory, then use `scripts/promptible-gate.mjs`. Common paths:
+Common paths:
 
 - Claude Code: `.claude/skills/motion-graphics/scripts/promptible-gate.mjs`
 - Other agents: `.agents/skills/motion-graphics/scripts/promptible-gate.mjs`
 
 Do not write composition code until the script prints `BUILD AUTHORIZED`. Do not deliver a render until it prints `DELIVERY AUTHORIZED`. A failed command is a hard stop.
 
-## Stage 1 — intake
+## Stage 1 — concise intake
 
 Ask only for missing choices:
 
 1. Format: **4:3 half-screen Instagram insert (1440×1080)** or **9:16 full-screen Instagram (1080×1920)**. Use 16:9 only when explicitly requested.
 2. Surface: **warm light**, **clean dark**, **light grid**, or **dark grid**.
-3. Script beat, duration, product identity, verified claims, and available assets.
+3. Exact script beat, duration, named products, verified claims, and supplied assets.
 
 Never silently default to dark. If the user delegates surface choice, use warm light.
 
-## Stage 2 — reference preflight
+## Stage 2 — research and authentic assets
 
-Read `references/approved-references.md` and select the closest reference by mechanism—not merely color.
+Read `references/research-and-assets.md` and `references/logo-library.md`.
+
+Run the smallest useful research course before concept work:
+
+- Supplied user assets are authoritative. Use them exactly; never redraw or replace them.
+- For common products, copy a suitable bundled logo from `assets/logos/` into the project and retain its provenance.
+- If missing, inspect 1–3 authoritative pages: official brand kit/homepage, official docs/product page, then a reputable curated icon source.
+- Prefer transparent SVG. Never use screenshots of logos, search-result thumbnails, baked checker/gray backgrounds, unofficial recreations, or hotlinked remote assets.
+- For a dashboard/product UI, acquire a real supplied screenshot/recording or an official public product/docs screenshot. If none exists, ask; do not invent a dashboard.
+- Research visible structure, terminology, brand color, and the exact action/state relevant to the beat. Do not copy unsupported metrics, private information, or claims.
+- Cache assets and notes under `.promptible/research/`. Reuse a cache hit when product, sources, asset hashes, and reference mechanism are unchanged.
+
+Choose only the visual mode the beat needs: `logo-system`, `product-ui`, `terminal`, `editorial`, or `abstract`. Do not force a newsletter, dashboard, terminal, or elaborate camera move into every graphic.
+
+Write `.promptible/research-brief.md` with these headings:
+
+```markdown
+## Product or concept
+## Authoritative sources
+## Real visual language
+## Closest approved mechanism
+## Motion plan
+## Avoid
+```
+
+Then run:
+
+```bash
+node <skill-dir>/scripts/promptible-gate.mjs research \
+  --project . \
+  --research-mode authentic \
+  --visual-mode product-ui \
+  --product "Slack" \
+  --reference kickbacks-same-run-editor \
+  --brief .promptible/research-brief.md \
+  --source https://slack.com/ \
+  --logo public/research/slack.svg \
+  --surface public/research/slack-dashboard.png
+```
+
+For unnamed conceptual work, use `--research-mode abstract --visual-mode abstract`; the brief and approved-reference comparison still apply, but unnecessary web/logo research does not.
+
+## Stage 3 — verified reference preflight
+
+Read `references/approved-references.md`. Select by story mechanism, not color. A new concept is allowed when it is more specific to the request, but it must explicitly inherit camera grammar, scale, restraint, and causal motion from the closest approved mechanism. Combine at most two mechanisms.
 
 Run:
 
 ```bash
 node <skill-dir>/scripts/promptible-gate.mjs init \
   --project . \
+  --research .promptible/research-manifest.json \
   --format 9:16 \
   --background warm-light \
-  --reference tsenta-apply-faster \
-  --identity authentic \
-  --asset public/product-logo.svg \
   --claim-source user \
   --beat "Exact visual idea being supported" \
   --duration 6
 ```
 
-`init` verifies the bundled approved MP4 and contact sheet by SHA-256, validates authentic local assets, and writes `.promptible/render-brief.json`.
+`init` revalidates research/assets, verifies the bundled approved MP4/contact sheet by SHA-256, and writes `.promptible/render-brief.json`.
 
-Rules:
-
-- Named products require `--identity authentic` and at least one real local asset.
-- `--identity abstract` is only for unnamed conceptual visuals. Never add fake brands, UI, receipts, serials, or product claims.
-- If verified references, assets, or claim provenance are missing: stop and ask. Never fall back to a generic visual.
-
-Inspect the actual bundled MP4 and contact sheet. Write `.promptible/reference-observations.md` with these headings:
+Inspect the actual bundled MP4/contact sheet and the researched product evidence. Write `.promptible/reference-observations.md` with:
 
 ```markdown
 ## Composition
 ## Camera
 ## Identity
+## Research match
 ## Anti-pattern
 ```
 
-Describe specific visible evidence under each heading, then run:
+Then run:
 
 ```bash
 node <skill-dir>/scripts/promptible-gate.mjs inspect \
@@ -74,27 +111,27 @@ node <skill-dir>/scripts/promptible-gate.mjs inspect \
 
 Only `BUILD AUTHORIZED` permits implementation.
 
-## Stage 3 — build
+## Stage 4 — build
 
-Follow the selected reference’s causal mechanism, camera grammar, object scale, density, and product authenticity—not merely its palette.
+Use the researched identity and the selected reference’s causal mechanism. The result should feel specific on the first pass, not like a template waiting for corrective prompting.
 
 Hard rules:
 
 - Zero neon, glow, bloom, luminous edges, colored shadows, gradient orbs/washes, cyan-purple gradients, glassmorphism, cyberpunk lighting, or vibe-coded AI styling.
-- No generic receipt, invoice, dossier, clipboard, floating card, barcode, rubber stamp, certificate, pricing card, dashboard, or card-grid fallback.
-- No invented UI, logos, metrics, prices, ranks, claims, engagement, serials, or product states.
+- No generic receipt, invoice, dossier, clipboard, floating card, barcode, rubber stamp, certificate, pricing card, fake dashboard, or disconnected card-grid fallback.
+- Realistic dashboards are encouraged only when grounded in supplied or authoritative product evidence. Recreate visible structure faithfully; never invent metrics, claims, controls, or product states.
+- No invented UI, logos, prices, ranks, engagement, serials, or proof.
 - No redundant narration text. Real data, product UI, commands, code, filenames, and short structural labels are allowed.
-- One connected world. Motion must reveal causality, scale, replacement, or state change.
-- A static centered object with rows appearing plus a slow zoom is not cinematic-camera execution.
-- Named product work uses real product surfaces and supplied assets. If unavailable, stop.
+- Motion must reveal causality, scale, replacement, navigation, or state change. It may be restrained when a logo swap or authentic UI action communicates the beat clearly.
+- A static centered object with rows appearing plus a slow zoom is not cinematic execution.
 - Use fewer, larger focal objects. Keep the current action centered, fully visible, and readable at destination size.
 - Dark scenes are opt-in. Dark means neutral charcoal with flat accents, never illuminated panels.
 
 Read `references/rejected-patterns.md` before concept selection.
 
-## Stage 4 — candidate evidence
+## Stage 5 — candidate evidence
 
-Render the candidate. Generate a three-frame contact sheet and probe JSON using the chosen duration. Example for a 6-second render:
+Render the candidate. Generate a three-frame contact sheet and `ffprobe` JSON. Example for six seconds:
 
 ```bash
 mkdir -p .promptible
@@ -116,24 +153,19 @@ node <skill-dir>/scripts/promptible-gate.mjs candidate \
   --probe .promptible/candidate-probe.json
 ```
 
-This validates dimensions, duration, evidence files, and hashes them into the manifest.
+## Stage 6 — independent visual critic
 
-## Stage 5 — independent visual critic
-
-The builder cannot grade its own work. Start a separate clean critic/subagent and give it only:
+The builder cannot grade its own work. Start a separate clean critic/subagent with:
 
 - `references/visual-critic.md`
+- research brief/manifest and authentic assets
 - selected approved MP4/contact sheet
 - candidate MP4/contact sheet
 - `.promptible/render-brief.json`
 
-The critic inspects actual media and outputs JSON matching `templates/critic-output.example.json`. It must ignore builder rationale.
+The critic inspects actual media and returns JSON matching `templates/critic-output.example.json`. If independent review cannot run, stop; never self-approve.
 
-If an independent critic cannot run, stop and report that QA is unavailable. Never self-approve.
-
-## Stage 6 — delivery gate
-
-Save critic JSON, then run:
+## Stage 7 — delivery gate
 
 ```bash
 node <skill-dir>/scripts/promptible-gate.mjs qa \
@@ -141,12 +173,12 @@ node <skill-dir>/scripts/promptible-gate.mjs qa \
   --critic .promptible/critic.json
 ```
 
-The gate rejects hard failures, any category below 8/10, average below 8.5, incorrect dimensions, modified/missing evidence, or non-independent review. Revise and repeat candidate + critic + QA until `DELIVERY AUTHORIZED`.
+The gate rejects hard failures, any category below 8/10, average below 8.5, modified/missing research or evidence, or non-independent review. Revise until `DELIVERY AUTHORIZED`.
 
 ## Technical and delivery rules
 
 - Drive motion with `useCurrentFrame()`, `spring()`, and `interpolate()`; no CSS animation.
-- Use hold → travel → hold. Action completes during holds; camera travels to the next action.
+- Use hold → travel → hold when travel helps. Action completes during holds.
 - End with a stable editor hold.
 - Typecheck or run the smallest meaningful build validation.
 - Deliver MP4 with exact dimensions, duration, render command, and editor placement note only after authorization.

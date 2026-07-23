@@ -1,8 +1,9 @@
 {
   "critic": "independent",
-  "referenceId": "tsenta-apply-faster",
+  "referenceId": "kickbacks-same-run-editor",
   "verdict": "reject",
   "scores": {
+    "research_fidelity": 7,
     "reference_fidelity": 7,
     "concept_specificity": 7,
     "product_authenticity": 8,
@@ -12,5 +13,5 @@
     "material_restraint": 9
   },
   "hardFailures": [],
-  "notes": ["State the visible evidence that misses the reference standard."]
+  "notes": ["State the visible evidence that misses the research/reference standard."]
 }
