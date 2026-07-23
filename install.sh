@@ -9,14 +9,14 @@ set -euo pipefail
 #    • the official Remotion best-practices skill
 #
 #  Usage:
-#    curl -fsSL https://raw.githubusercontent.com/liamrjohnston30/remotion-motion-graphics-skill/main/install.sh | bash
+#    curl -fsSL https://raw.githubusercontent.com/liamrjohnston/remotion-motion-graphics-skill/main/install.sh | bash
 #    curl -fsSL ... | bash -s -- my-project-name
 #
 #  Or after cloning this repo:
 #    bash install.sh [project-name]
 # ─────────────────────────────────────────────────────────────
 
-REPO="liamrjohnston30/remotion-motion-graphics-skill"
+REPO="liamrjohnston/remotion-motion-graphics-skill"
 DIR="${1:-motion-graphics}"
 
 bold() { printf '\033[1m%s\033[0m\n' "$1"; }

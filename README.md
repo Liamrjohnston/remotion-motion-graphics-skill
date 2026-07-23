@@ -6,12 +6,12 @@
 
 Kinetic text · AI workflow diagrams · cinematic camera moves · terminal demos · editorial highlights
 
-[![skills.sh](https://skills.sh/b/liamrjohnston30/remotion-motion-graphics-skill)](https://skills.sh/liamrjohnston30/remotion-motion-graphics-skill)
+[![skills.sh](https://skills.sh/b/liamrjohnston/remotion-motion-graphics-skill)](https://skills.sh/liamrjohnston/remotion-motion-graphics-skill)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Remotion](https://img.shields.io/badge/Made%20with-Remotion-3B82F6)](https://remotion.dev)
 
 ```bash
-npx skills add liamrjohnston30/remotion-motion-graphics-skill
+npx skills add liamrjohnston/remotion-motion-graphics-skill
 ```
 
 Works with **Claude Code**, **Codex**, **Cursor**, **OpenCode**, and 60+ other agents.
@@ -114,7 +114,7 @@ For news/release/trend beats where a terminal would feel forced. Builds layered 
 Scaffolds a fresh Remotion project **and** installs all the skills (this repo's four + the official Remotion skill) in one go:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/liamrjohnston30/remotion-motion-graphics-skill/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/liamrjohnston/remotion-motion-graphics-skill/main/install.sh | bash
 ```
 
 Pass a project name if you want: `... | bash -s -- my-project`. Run it inside an existing Remotion project and it skips scaffolding and just installs the skills. Cloned this repo instead? Same thing: `bash install.sh`. ([Read the script](install.sh) — it's ~50 lines: `create-video` + `skills add`, nothing else.)
@@ -124,20 +124,20 @@ Pass a project name if you want: `... | bash -s -- my-project`. Run it inside an
 **One command, from any terminal:**
 
 ```bash
-npx skills add liamrjohnston30/remotion-motion-graphics-skill
+npx skills add liamrjohnston/remotion-motion-graphics-skill
 ```
 
 The [skills CLI](https://github.com/vercel-labs/skills) detects your agent (Claude Code, Codex, Cursor, OpenCode, and [60+ more](https://github.com/vercel-labs/skills#supported-agents)) and installs all four skills into the right directory. Useful variants:
 
 ```bash
 # Install globally (available in every project)
-npx skills add liamrjohnston30/remotion-motion-graphics-skill -g
+npx skills add liamrjohnston/remotion-motion-graphics-skill -g
 
 # Claude Code only, no prompts
-npx skills add liamrjohnston30/remotion-motion-graphics-skill -a claude-code -y
+npx skills add liamrjohnston/remotion-motion-graphics-skill -a claude-code -y
 
 # Just one skill
-npx skills add liamrjohnston30/remotion-motion-graphics-skill --skill cinematic-camera
+npx skills add liamrjohnston/remotion-motion-graphics-skill --skill cinematic-camera
 ```
 
 <details>
@@ -146,7 +146,7 @@ npx skills add liamrjohnston30/remotion-motion-graphics-skill --skill cinematic-
 Clone and copy the skill folders into your agent's skills directory:
 
 ```bash
-git clone https://github.com/liamrjohnston30/remotion-motion-graphics-skill
+git clone https://github.com/liamrjohnston/remotion-motion-graphics-skill
 cp -r remotion-motion-graphics-skill/skills/* .claude/skills/   # Claude Code (project)
 # or ~/.claude/skills/ for global; .agents/skills/ for other agents
 ```
@@ -166,7 +166,7 @@ npx skills add remotion-dev/skills
    ```bash
    npx create-video@latest my-graphics
    cd my-graphics
-   npx skills add liamrjohnston30/remotion-motion-graphics-skill -y
+   npx skills add liamrjohnston/remotion-motion-graphics-skill -y
    npx skills add remotion-dev/skills -y
    ```
 
