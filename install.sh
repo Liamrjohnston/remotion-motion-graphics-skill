@@ -42,10 +42,10 @@ else
 fi
 
 bold "▸ Installing the 4 motion-graphics skills"
-npx -y skills add "$REPO" -y
+npx -y skills add "$REPO" -y </dev/null
 
 bold "▸ Installing the official Remotion skill"
-npx -y skills add remotion-dev/skills -y
+npx -y skills add remotion-dev/skills -y </dev/null
 
 echo ""
 bold "✓ All set."
