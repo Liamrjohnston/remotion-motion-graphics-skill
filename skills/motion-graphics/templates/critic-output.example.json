@@ -1,0 +1,16 @@
+{
+  "critic": "independent",
+  "referenceId": "tsenta-apply-faster",
+  "verdict": "reject",
+  "scores": {
+    "reference_fidelity": 7,
+    "concept_specificity": 7,
+    "product_authenticity": 8,
+    "mobile_readability": 9,
+    "composition": 8,
+    "motion_causality": 7,
+    "material_restraint": 9
+  },
+  "hardFailures": [],
+  "notes": ["State the visible evidence that misses the reference standard."]
+}
