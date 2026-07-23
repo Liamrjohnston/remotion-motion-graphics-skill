@@ -1,99 +1,110 @@
 ---
-name: article-highlights
-description: Create article/news-style Remotion carousel inserts with clean editorial cards, layered text, rough.js highlighter strokes behind keywords, blur-in, and subtle 3D camera motion for informative/release/news/trend topics.
-metadata:
-  tags: remotion, editorial, news, highlights, carousel, roughjs
+name: "article-highlights"
+description: "Editorial Remotion article inserts with mandatory format/background intake, layered highlights, zero neon/glow, and mobile QA."
 ---
 
 # Article Highlights
 
-## Example output
+Use with `remotion-best-practices`, `motion-graphics`, and `cinematic-camera` for news, release, trend, and article-proof moments where a terminal would feel forced.
 
-The approved reference render for this skill — an editorial card that blurs in, slowly zooms with a subtle 3D tilt, then draws hand-drawn highlighter strokes behind the key phrases (click for full MP4):
+## Mandatory intake
 
-<p>
-  <a href="assets/examples/article-highlight.mp4"><img src="../../previews/article-highlight.gif" alt="Article highlight editorial card" width="55%"/></a>
-</p>
+Before coding, ask for any missing decision:
 
-Use this with the Remotion skill and the `motion-graphics` skill when a carousel slide should feel like an editorial/news/article screenshot rather than a terminal demo.
+> Which format do you want: 4:3 half-screen Instagram insert or 9:16 full-screen Instagram? And which background: warm light, clean dark, light grid, or dark grid?
 
-Use this pattern for:
-- Informative/news/release/trend slides.
-- "Something just changed/launched" topics.
-- Explaining a key claim by highlighting keywords in an article-like layout.
-- Non-terminal visual proof where terminal UI would feel forced.
+- 4:3 insert: 1440×1080, designed to remain readable at roughly half of a 9:16 frame.
+- 9:16 full-screen: 1080×1920, respecting caption/interface zones.
+- Use 16:9 only when explicitly requested.
+- If the user delegates the background, use warm light.
 
-Prefer the `terminal-inserts` skill instead for Claude Code/Codex/skills/CLI/setup/agent-run visuals.
+The article paper can remain light on a clean-dark or dark-grid scene. Do not silently change the whole composition to dark.
+
+## Absolute visual ban
+
+Zero neon, glow, bloom, luminous edges, colored shadows, cyan-purple gradients, gradient orbs, radial color washes, glassmorphism, cyberpunk lighting, or vibe-coded AI decoration. Highlights must look like physical marker/paper treatment—not emitted light.
+
+Reject any prohibited treatment before delivery.
+
+## Approved reference
+
+Inspect `assets/examples/article-highlight.mp4` and contact/reference frames before coding. Continue its editorial hierarchy, generous paper spacing, restrained marker treatment, slow camera, and legibility. Use the canonical repository gallery when local assets are unavailable: `https://github.com/Liamrjohnston/remotion-motion-graphics-skill`.
+
+## When to use
+
+Use for:
+
+- Informative/news/release/trend beats.
+- “Something changed or launched” proof.
+- Real article excerpts with meaningful highlighted phrases.
+- Non-terminal evidence where editorial material clarifies the point.
+
+Use `terminal-inserts` for CLI/setup/agent-run stories. Use authentic product footage/UI when the beat is a product demo.
 
 ## Core architecture
 
-Do **not** use a flattened article screenshot when the highlight must appear behind text.
+Do not flatten the article when marker strokes must sit behind text. Build layered Remotion DOM/SVG:
 
-Build layered Remotion DOM/SVG:
-1. White full-HD background.
-2. White editorial article/card/paper layer with generous padding.
-3. Rough.js highlighter SVG layer above the paper.
-4. DOM/SVG text layer above the highlighter.
+1. Selected scene surface.
+2. Editorial paper/card with generous safe padding.
+3. Rough.js/SVG marker layer above paper.
+4. DOM/SVG text above marker.
 
-This is required so the marker appears behind the words but visibly on the paper.
+The marker must sit visibly behind words and above paper.
 
-## Default specs
+## Material and layout
 
-- Composition: 1920x1080, 30fps, 5s / 150 frames.
-- Background: white or very light editorial canvas.
-- Card: centered, generous margins, subtle shadow optional, no clipping.
-- Typography: editorial/news-like hierarchy.
-  - Small uppercase section label.
-  - Large bold serif or editorial headline.
-  - Muted byline/date.
-  - 2-3 short body lines max.
-  - Optional muted pill/button/source row.
-- Highlights: semi-transparent yellow, rough.js/hand-drawn marker style, behind text.
+- Paper: warm white/off-white with neutral border and soft neutral shadow; never colored glow.
+- Typography: editorial/news hierarchy—small section label, large serif/editorial headline, muted byline/date, and at most 2–3 short body lines.
+- Highlights: restrained semi-transparent physical marker color such as muted yellow; never fluorescent.
+- Use real article/source identity and supplied copy. Do not invent publications, dates, claims, or quotes.
+- Hard-wrap intentionally and keep text inside transformed safe margins.
+- Do not center like a title slide; it should feel like an authentic article excerpt.
+- Remove nonessential pills/buttons/source clutter if unreadable at destination size.
 
-## Animation standard
+## Animation
 
-- Frames 0-30: whole composition starts blurred and unblurs over 1 second.
-- No highlight visible at frame 0 or early blur frames.
-- Full duration: slow subtle zoom into the article.
-- Add slight 3D left-to-right rotation with perspective. Target around 15deg total per axis, but reduce if needed to prevent clipping/readability issues.
-- Start highlighter only after blur finishes, around frame 38-45.
-- Draw each highlight left-to-right like dragging a marker over paper.
-- Sequence highlights, do not reveal all at once.
-- Final state holds with highlights visible.
+- Begin with a brief restrained blur-to-focus only when it supports the approved reference; blur is optical focus, not glow.
+- No marker visible during the early focus phase.
+- Use a slow subtle camera push and restrained perspective rotation.
+- Start marker strokes after focus settles.
+- Draw each highlight left-to-right using a mask/wipe.
+- Sequence highlights; never reveal all at once.
+- End with all key phrases readable and a stable hold.
+- Drive animation with `useCurrentFrame()`, `spring()`, and `interpolate()`; no CSS animation.
 
 ## Highlighter rules
 
-- Use rough.js or irregular SVG marker shapes.
-- Animate reveal with a clipping mask/wipe from left to right.
-- Highlighter must be behind text and above paper.
-- Yellow should be visible but not obscure text.
-- Make the stroke slightly imperfect, not a clean rectangle.
-- Target only meaningful keywords/phrases, not whole paragraphs.
+- Use rough.js or an irregular SVG marker shape.
+- Marker remains behind text.
+- Slight imperfection is good; a perfect gradient rectangle is not.
+- Highlight only meaningful verified phrases, not whole paragraphs.
+- Marker opacity must preserve text contrast.
+- No fluorescent yellow, light emission, blur halo, or glowing edge.
 
-## Layout rules
+## No redundant narration
 
-- Hard-wrap headline/body lines intentionally.
-- Keep all text inside safe margins.
-- Check transformed/rotated card does not clip in the viewport.
-- Do not let body copy run off the right edge.
-- Do not center it like a title slide; it should feel like an article/webpage excerpt.
+Article/source text may appear when it is the actual evidence. Do not add a separate headline that merely repeats the spoken VO. Use only the authentic excerpt and minimal structural metadata.
 
-## When briefing Remotion
+## First-pass rejection gate
 
-Include:
-- Composition size/FPS/duration/output path.
-- The article copy and exact phrases to highlight.
-- Exact timing: blur, first highlight, second highlight, final hold.
-- Requirement that highlights start invisible and draw on after blur.
-- Requirement to build layered DOM/SVG, not flattened image text.
-- QA stills: early no-highlight frame, mid-highlight frame, final-highlight frame.
+Do not deliver until every answer is “no”:
 
-## Quality gate
+1. Was format or background unconfirmed?
+2. Is there neon, glow, luminous marker treatment, colored shadow, gradient wash, or glassmorphism?
+3. Is the source/article identity or claim invented?
+4. Is the card a generic centered title slide instead of an editorial surface?
+5. Is any key text unreadable at the selected Instagram placement?
+6. Does marker sit above/obscure text or appear too early?
+7. Does the camera crop the paper or create empty travel?
+8. Does the result miss the approved reference’s restraint and polish?
 
-Before delivery:
-- `npx tsc --noEmit`.
-- Render MP4.
-- Render stills around frame 20, frame 60, frame 120.
-- Confirm frame 20 has no highlight.
-- Confirm target phrases are highlighted by final frame.
-- Confirm no text clipping, no off-center/cut-off card, and marker sits behind text.
+Revise privately until the gate passes.
+
+## QA and delivery
+
+1. Typecheck or run the smallest meaningful validation.
+2. Render an early no-highlight still, a mid-stroke still, a final-highlight still, and the end hold.
+3. Confirm the marker is invisible early, behind text, and complete at the end.
+4. Inspect for clipping, unreadable copy, invented source details, neon/glow, and weak framing.
+5. Deliver MP4 with dimensions, duration, exact render command, and editor placement note.

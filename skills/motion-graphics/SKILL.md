@@ -1,197 +1,179 @@
 ---
-name: motion-graphics
-description: Opinionated motion-graphics rules for AI-education video B-roll built with Remotion. Use when creating kinetic text, AI workflow diagrams, UI mockups, charts, comparisons, or short renderable insert clips.
-metadata:
-  tags: remotion, motion-graphics, b-roll, text-animation, ai-videos
+name: "motion-graphics"
+description: "Production art direction, intake, anti-neon rules, reference review, and QA for premium Remotion video inserts."
 ---
 
 # Motion Graphics for AI Videos
 
-## Example output
+Use with `remotion-best-practices` and `cinematic-camera`. This skill owns taste, intake, mobile clarity, and the first-pass quality bar.
 
-Clips built by an agent following this skill (click for full MP4):
+## Mandatory intake gate — ask before coding
 
-<p>
-  <a href="../../examples/tsenta-apply-faster.mp4"><img src="../../previews/tsenta-apply-faster.gif" alt="Old way vs AI way comparison" width="24%"/></a>
-  <a href="../../examples/openmontage-tool-chaos.mp4"><img src="../../previews/openmontage-tool-chaos.gif" alt="Tool chaos collapsing into one system" width="43%"/></a>
-</p>
+Do not create files, write composition code, or render until these two decisions are known. If the user already specified one, ask only for the missing one.
 
-Use this alongside the official Remotion best-practices skill. The official skill gives API correctness; this skill gives taste, repeatable patterns, and production constraints for short-form and long-form AI education content.
+1. **Delivery format**
+   - **4:3 insert — 1440×1080:** for a half-screen Instagram layout or placement over A-roll.
+   - **9:16 full-screen — 1080×1920:** for a full-screen Instagram/Reels/TikTok graphic.
+   - Use **16:9 — 1920×1080** only when the user explicitly asks for YouTube/landscape.
+2. **Background surface**
+   - **Warm light:** off-white paper/canvas, dark ink, neutral borders.
+   - **Clean dark:** charcoal/ink, neutral surfaces, restrained brand accent.
+   - **Light grid:** warm light field with subtle neutral grid lines.
+   - **Dark grid:** charcoal field with subtle neutral grid lines.
 
-## Prime Directive
+Ask plainly:
 
-Build graphics that make the video's point easier to understand in under 2 seconds.
+> Which format do you want: 4:3 half-screen Instagram insert or 9:16 full-screen Instagram? And which background: warm light, clean dark, light grid, or dark grid?
 
-## No Redundant On-Screen Text (Hard Rule)
+If the user says “you choose,” use **warm light**. Never silently default to dark.
 
-Talking-head videos usually have spoken VO + burned captions over the top. The graphic must NOT repeat the script line as on-screen copy. Do not put the narrated phrase, headline restatements, or descriptive label sentences on screen. Carry meaning through the visual/diagram itself.
+Also confirm or infer the script beat, duration, authentic product assets, and placement in the edit. Do not burden the user with questions already answered.
 
-- Allowed: data the graphic IS about — counters, real numbers ($, token counts, %), axis/unit labels, UI/app text that belongs in a mockup, code.
-- Not allowed: restating the VO ("Same answers", "60–95% fewer tokens", "You never touch your code", etc.), explanatory captions, or pill/badge phrases that echo the narration.
-- When a beat feels empty without a phrase, the fix is a better/clearer graphic, not added text.
+## Absolute visual ban — zero neon or glow
+
+This is non-negotiable across every background and every composition.
+
+- No neon colors, fluorescent accents, electric cyan, electric purple, or lime-green “AI” palettes.
+- No glow, bloom, luminous edges, colored drop shadows, aura, halo, light spill, or pulsing radiance.
+- No cyan→purple, blue→purple, rainbow, or multicolor gradient bars.
+- No gradient orbs, radial color washes, ambient color fog, aurora fields, or cyberpunk lighting.
+- No glassmorphism, frosted-glass SaaS cards, shiny beveled UI, or translucent panels used as decoration.
+- No “vibe-coded AI” look: dark navy void + glowing card + tiny badges + colorful gradient + generic icons.
+- A dark or dark-grid choice means neutral charcoal materials—not glowing panels.
+- Product brand colors may appear as restrained flat fills, strokes, or highlights. They never glow and do not become the whole scene’s lighting.
+
+If any prohibited treatment appears in a still, reject the render and remove it before showing the user. Lowering the glow is not a fix; the glow must be zero.
+
+## Approved-reference gate
+
+Before planning or coding, inspect at least two relevant approved examples from the installed repository or the canonical gallery:
+
+- `examples/openmontage-hook.mp4` — continuous physical world and clear product identity.
+- `examples/openmontage-claude-pipeline.mp4` — connected workflow with camera-led causality.
+- `examples/tsenta-apply-faster.mp4` — readable comparison with meaningful data.
+- `examples/tsenta-one-click-wall.mp4` — one action producing a spatial payoff.
+- `examples/kickbacks-same-run-editor.mp4` — authentic product workflow.
+- `examples/smartlead-prewarmed-burn.mp4` — restrained cinematic product story.
+
+Canonical repository: `https://github.com/Liamrjohnston/remotion-motion-graphics-skill`
+
+Inspect the actual clip or representative frames, not only its filename. Continue its typography, spacing, density, material treatment, motion rhythm, and camera language. If the references cannot be accessed, use the locked fallback: warm off-white physical/editorial world, dark ink, muted neutrals, one restrained brand accent, soft neutral shadows, and no decorative effects.
+
+Recent approved work is the minimum standard, not optional inspiration. Do not invent a new aesthetic just to make the request feel novel.
+
+## Prime directive
+
+Make the idea understandable in under two seconds. Build one strong visual mechanism, not a decorated summary of the script.
 
 Priorities:
-1. Clarity — the viewer instantly understands the idea.
-2. Retention — motion creates pattern interrupts and guides attention.
-3. Polish — smooth, modern, premium, but never distracting.
-4. Reusability — components should be easy to remix for future videos.
 
-## Default Canvas Presets
+1. Clarity.
+2. Product authenticity.
+3. Mobile readability.
+4. Purposeful motion.
+5. Polish and reuse.
 
-- Vertical short-form: `1080x1920`, 30fps, 3-8 seconds.
-- Horizontal YouTube/B-roll: `1920x1080`, 30fps, 4-10 seconds.
-- Transparent overlay: render ProRes/WebM only when explicitly useful; otherwise use a dark/clean background for easy review.
-- Review copy: H.264 MP4 with reasonable CRF so it's small enough to share in chat.
+## No redundant on-screen text
 
-## Visual Language
+Talking-head videos already have spoken VO and burned captions. Do not restate the narrated line, headline, or explanation on screen.
 
-- Clean dark backgrounds, high contrast, crisp text.
-- Modern SaaS/AI aesthetic: glass panels, subtle glows, thin outlines, soft shadows.
-- Use blue/cyan/purple accents by default; add green for success/automation, red/orange for pain/problem states.
-- Avoid cluttered cyberpunk, fake hologram spam, tiny labels, and overdone neon.
-- Prefer fewer larger elements over many small ones.
-- Do not default to generic fake SaaS/browser-card demos; build visuals grounded in the real product or idea.
+Allowed: real data, prices, counters, percentages, units, filenames, commands, code, product/UI text, and short structural labels.
 
-Recommended defaults:
-```ts
-const COLORS = {
-  bg: '#060812',
-  panel: '#0F172A',
-  panel2: '#111827',
-  text: '#F8FAFC',
-  muted: '#94A3B8',
-  blue: '#3B82F6',
-  cyan: '#22D3EE',
-  purple: '#8B5CF6',
-  green: '#22C55E',
-  red: '#EF4444',
-};
-```
+Not allowed: explanatory sentences, narration copied into a headline, decorative pills that repeat the point, or extra text added because the frame feels empty. Improve the visual mechanism instead.
 
-## Motion Rules
+## Composition and material language
 
-- Drive all animation from `useCurrentFrame()` and `useVideoConfig()`.
-- No CSS transitions/keyframes/Tailwind animation classes for render-critical motion.
-- Prefer `spring()` for entrances and emphasis; use `interpolate()` for precise fades, wipes, and progress.
-- Use staggered entrances: 3-8 frames for dense UI items, 8-15 frames for major objects.
-- Never animate everything at once. Sequence attention: headline → object → proof/detail → payoff.
-- Use motion to explain causality: data flows left-to-right or top-to-bottom; transformations happen through arrows, lines, or morphing panels.
-- Every clip should have either a subtle hold or clear end state so editors can cut cleanly.
+- Build one connected physical/spatial world and move attention through it.
+- Prefer paper, canvas, desktop, real product surfaces, documents, receipts, timelines, queues, physical handoffs, authentic terminals, and real UI.
+- Use real logos, screenshots, recordings, product assets, and verified data whenever available.
+- Do not replace real identity with colored squares, generic landscape icons, fake app marks, or fake browser chrome.
+- Avoid generic dashboards, arbitrary card grids, decorative progress bars, fake metrics, and stock “AI workflow” diagrams.
+- A centered glass pricing card with glowing badges and a gradient progress bar is an explicitly banned pattern.
+- One graphic teaches one primary idea. Sequence multiple stages over time.
+- Use fewer, larger objects. Essential information must remain readable on a phone.
 
-Good spring presets:
-```ts
-const SPRINGS = {
-  snappy: { damping: 20, stiffness: 200 },
-  smooth: { damping: 200, stiffness: 100 },
-  bouncy: { damping: 10, stiffness: 140 },
-  heavy: { damping: 16, stiffness: 80, mass: 1.6 },
-};
-```
+### Surface recipes
 
-## Kinetic Text Patterns
+**Warm light**
 
-Use text animation when the point is a phrase, claim, contrast, or hook.
+- Base: `#F7F5EF` / `#FBFAF6`.
+- Ink: `#16181B`.
+- Muted: `#6F7378`.
+- Border: `#DDE0E3`.
+- Shadows: neutral black at low opacity, never colored.
 
-Preferred patterns:
-- Word-by-word reveal with slight y-slide + fade.
-- Highlight sweep behind the key word.
-- Word carousel for before/after replacements.
-- Typewriter only for AI/chat/code moments; use string slicing, not per-character hidden spans.
-- Two-layer crossfade for highlighted final text to avoid layout jumps.
+**Clean dark**
 
-Rules:
-- Mobile headline minimum: ~64px on 1080x1920.
-- Supporting text minimum: ~38px vertical / ~30px horizontal.
-- Use max 1-2 font weights per graphic.
-- Keep line lengths short; break phrases intentionally.
-- Do not put critical text near Reels/TikTok UI zones.
+- Base: `#111315` / `#15181B`.
+- Surface: `#1D2024`.
+- Text: `#F4F1EA`.
+- Muted: `#A5A8AC`.
+- Border: `#34383D`.
+- One flat product accent only; no luminous edge or color wash.
 
-## AI Workflow / System Diagram Patterns
+**Light grid**
 
-1. **Input → AI Agent → Output**
-   - Great for simple automation explanations.
-   - Animate input card in, pulse agent node, line draw to output card.
+- Use the warm-light recipe.
+- Grid lines: neutral ink at roughly 4–7% opacity.
+- Keep the grid quiet; it is a spatial aid, not decoration.
 
-2. **Old Way vs AI Way**
-   - Split screen or stacked comparison.
-   - Old way: gray/red, more steps, slower animation.
-   - AI way: blue/green, fewer steps, faster/smoother path.
+**Dark grid**
 
-3. **Agent Team / Multi-Agent Flow**
-   - Central orchestrator node with specialist nodes around it.
-   - Use staggered line draws and small status chips.
+- Use the clean-dark recipe.
+- Grid lines: neutral white at roughly 4–7% opacity.
+- No blue/cyan grid and no glow at intersections.
 
-4. **Tool Stack / Pipeline**
-   - Horizontal cards: Trigger → Reasoning → Tool Call → Database/CRM → Report.
-   - Use small animated packets moving along lines.
+## Concept selection
 
-5. **ROI / Before-After Metric**
-   - Big number animation, simple bar/line/progress visual.
-   - Always include label and context so it is not just eye candy.
+Match the mechanism to the claim:
 
-## UI Mockups
+- Price/value: receipt, invoice, price tag, token stack with real units, or authentic pricing surface.
+- Before/after: one system transforming or replacing another, not two unrelated dashboards.
+- Workflow: connected objects and visible causality through lines, handoffs, queues, or real product actions.
+- Product demo: authentic recording or faithful UI with camera-guided focus.
+- News/release: editorial article surface with restrained physical highlighting.
+- CLI/agent run: authentic terminal structure, not a fake checklist or dashboard.
+- Data claim: chart only when every value is real and labeled.
 
-For product demos and stylized software screens:
-- Recreate the *idea* of the UI, not exact copyrighted pixels unless assets are provided.
-- Use large fake UI panels that read on mobile.
-- Animate cursor/clicks only when they clarify the action.
-- Use callouts: outline box + short label + arrow/leader line.
-- Blur or abstract sensitive/private data.
+Never fabricate prices, benchmarks, ranks, metrics, capabilities, UI, or product identity.
 
-## Charts / Data Visuals
+## Motion and camera
 
-Use charts for metrics, money, time saved, adoption, lead flow, or performance.
+- Drive render-critical motion with `useCurrentFrame()`, `spring()`, and `interpolate()`; no CSS animation.
+- Use hold → travel → hold. The camera moves to the next action; the action completes during the hold.
+- Prefer smooth 14–24 frame moves over frantic whips.
+- Use micro-motion only when it communicates state: typing, ticking, checking, playback, progress, cursor action.
+- Never animate every object at once.
+- End with all key elements visible and a stable editor hold.
 
-Rules:
-- Always label axes or use direct labels.
-- Animate bars/lines with staggered spring entrances.
-- Use `@remotion/paths` for line/path drawing and marker-following.
-- Avoid third-party chart library animations; Remotion controls the animation.
-- Keep charts simple: 3-7 data points usually beats a full dashboard.
+## Mobile clarity
 
-## Transitions
+- 4:3 inserts must remain readable when occupying roughly half of a 9:16 frame.
+- 9:16 full-screen work must respect Reels/TikTok UI and caption zones.
+- Use short labels, strong hierarchy, generous margins, and large focal objects.
+- If a label is not essential at phone size, remove it.
 
-Use `@remotion/transitions` for multi-scene clips when scenes need a professional flow.
+## First-pass rejection gate
 
-Best defaults:
-- Fade: clean idea shift.
-- Slide: step-by-step process or carousel.
-- Wipe: reveal/compare.
-- Flip: use sparingly; can feel gimmicky.
+Do not show the first render until every answer is “no”:
 
-Remember: transitions overlap adjacent scenes, so calculate duration accordingly.
+1. Did implementation begin before format and background were chosen?
+2. Is there any neon, glow, bloom, colored shadow, cyan-purple gradient, or decorative color wash?
+3. Does it resemble a generic AI/SaaS dashboard, glass card, template, or vibe-coded demo?
+4. Is dark being used without the user choosing dark or an approved reference requiring it?
+5. Does the graphic repeat the narration?
+6. Are any values, UI, product marks, or claims invented?
+7. Is essential text too small for the selected Instagram placement?
+8. Does the scene lack authentic product identity when assets exist?
+9. Does motion decorate instead of explaining causality?
+10. Does it fail to match the quality, spacing, material restraint, and camera language of the approved references?
 
-## Package Arsenal
+If any answer is yes, revise privately and rerun the gate. The user should see the strongest pass, not an avoidable rough draft.
 
-Core packages worth having installed:
-- `@remotion/transitions` — scene transitions.
-- `@remotion/paths` — SVG line/path/chart animations.
-- `@remotion/google-fonts` — clean font loading when needed.
-- `@remotion/layout-utils` — measure/fit text and avoid overflow.
-- `@remotion/media` — audio/video helpers.
-- `@remotion/shapes` — primitives for clean geometric visuals.
+## QA and delivery
 
-Use optional packages only when the concept needs them:
-- `@remotion/lottie` for provided Lottie files.
-- `@remotion/captions` for real caption/subtitle workflows.
-- `@remotion/three` only for true 3D scenes; do not default to 3D.
-
-## Prompt Intake Checklist
-
-Before building, infer or decide:
-- Script beat / exact line being supported.
-- Best visual metaphor: text, diagram, UI mock, chart, comparison, caption, transition, abstract loop.
-- Canvas: vertical/horizontal/transparent overlay.
-- Duration and where the editor will place it.
-- Main text and any data points.
-- Whether it should loop, hold, or end cleanly.
-
-If missing, make a first-pass assumption and state it briefly.
-
-## Quality Gate Before Delivering
-
-Before shipping a render:
-- Build/typecheck or run the smallest meaningful validation.
-- Render a compressed review MP4/still.
-- Watch/inspect enough to ensure it actually rendered correctly.
-- Include concise editor notes: what it is, where it fits, and what can be changed.
+1. Typecheck or run the smallest meaningful build validation.
+2. Render stills for the opening, each camera destination, payoff, and end hold.
+3. Compare them beside approved references for framing, density, identity, color restraint, and polish.
+4. Inspect the full MP4 for crops, tiny text, dead travel, generic filler, lingering overlays, and weak end frames.
+5. Deliver the review MP4 with exact dimensions, duration, render command, and editor placement note.

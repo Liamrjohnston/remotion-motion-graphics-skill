@@ -1,53 +1,61 @@
 ---
-name: terminal-inserts
-description: Create terminal-style Remotion insert graphics for carousels and AI-agent demos — authentic CLI installs, skills-loaded sequences, server logs, agent run logs, generated output cards, and clean dark terminal animations.
-metadata:
-  tags: remotion, terminal, cli, carousel, ai-agents, claude-code
+name: "terminal-inserts"
+description: "Authentic, restrained Remotion terminal inserts with mandatory format/background intake and zero neon or glow."
 ---
 
 # Terminal Inserts
 
-## Example output
+Use with `remotion-best-practices`, `motion-graphics`, and `cinematic-camera` for Claude Code, Codex, MCP, agents, skills, repository workflows, automation demos, and authentic CLI inserts.
 
-Clips built by an agent following this skill (click for full MP4):
+## Mandatory intake
 
-<p>
-  <a href="assets/examples/terminal-install.mp4"><img src="../../previews/terminal-install.gif" alt="Authentic terminal skill install" width="43%"/></a>
-  <a href="../../examples/kickbacks-spinner-terminals.mp4"><img src="../../previews/kickbacks-spinner-terminals.gif" alt="Parallel agent terminals" width="24%"/></a>
-</p>
+Follow the `motion-graphics` intake gate before coding. If not already specified, ask:
 
-Use this with the Remotion skill and the `motion-graphics` skill when making carousel/body-slide inserts that should look like polished terminal/product UI — especially for Claude Code, Codex, MCP, agents, skills, repo workflows, and automation demos.
+> Which format do you want: 4:3 half-screen Instagram insert or 9:16 full-screen Instagram? And which background: warm light, clean dark, light grid, or dark grid?
 
-## Goal
+The terminal window may remain charcoal on any chosen surface. A terminal object does not force the entire scene to be dark.
 
-Make the idea obvious in under 2 seconds using an authentic terminal metaphor. The insert should look like a premium CLI/product demo, not a random code screenshot, checklist UI, or generic neon animation.
+## Absolute visual ban
 
-Approved examples live in `assets/examples/`:
-- `terminal-install.mp4` — command -> ASCII/large terminal word -> authentic CLI lines -> success state.
-- `outreach-sequence-generator.mp4` — command -> status -> structured generated cards.
+- Zero neon, fluorescent green, electric cyan, electric purple, or multicolor AI palettes.
+- Zero glow, bloom, luminous edges, colored shadow, radial color wash, halo, aura, or light spill.
+- No glassmorphism, shiny gradients, cyberpunk atmosphere, scanline spectacle, or “hacker movie” styling.
+- No cyan-purple gradients or green glow around text, cursors, panels, or ASCII words.
+- Use flat ink/charcoal surfaces, neutral borders, neutral shadows, and at most one restrained flat product or ANSI accent.
 
-Contact sheets live in `references/` for quick visual recall.
+If any glow or neon appears in a still, reject the render and remove it before delivery.
 
-## Default specs
+## Goal and references
 
-- Carousel insert render: match the destination frame exactly when known. If unknown, render 1440x1080, 30fps, 5 seconds, then crop/fit consciously.
-- Background: near-black/navy (`#05070F`, `#070B16`) with subtle grain or radial glow.
-- Terminal panel: dark charcoal/near-black rounded rectangle, soft shadow, 1px low-opacity border.
-- Chrome: macOS traffic-light dots top-left; muted centered title/path optional, e.g. `archive@skills`.
-- Typography: monospace only for terminal scenes. Prefer SF Mono, JetBrains Mono, IBM Plex Mono, Berkeley Mono fallback.
-- Accent: terminal green (`#4ade80`, `#22C55E`, `#39FF88`) plus white/muted gray. Use only 2-3 colors for authentic CLI scenes.
-- Audio is optional; carousel inserts usually should work silently.
+Make the idea obvious in under two seconds using an authentic terminal metaphor—not a random code screenshot, checklist UI, dashboard, or generic AI animation.
+
+Inspect the actual approved examples before coding:
+
+- `assets/examples/terminal-install.mp4` — command → large terminal word → authentic CLI lines → success state.
+- `assets/examples/outreach-sequence-generator.mp4` — command → status → structured generated output.
+- Repository example `examples/kickbacks-spinner-terminals.mp4` — multiple CLI sessions in one connected world.
+
+Use contact sheets in `references/` when available. Continue their typography, density, spacing, and motion, while enforcing the zero-glow rule above.
+
+## Surface and terminal specs
+
+- Match the selected destination exactly.
+- 4:3 insert: 1440×1080, 30fps unless the user specifies otherwise.
+- 9:16 full-screen: 1080×1920, 30fps unless specified otherwise.
+- Terminal: `#101214` / `#15181B`, charcoal title bar, 1px neutral border, neutral black shadow.
+- Scene surface comes from the user’s selected warm light, clean dark, light grid, or dark grid option.
+- Typography: monospace only inside the terminal. Prefer SF Mono, JetBrains Mono, IBM Plex Mono, or Berkeley Mono fallback.
+- Text: warm white and muted gray.
+- Accent: one restrained flat product color or subdued terminal green such as `#4F8F6D`; no fluorescent `#39FF88`.
+- macOS traffic-light dots are allowed as small authentic chrome, not as a decorative palette.
 
 ## Critical authenticity rules
 
-For terminal install/log scenes, do **not** make UI checklist cards.
-
-Use terminal symbols and real CLI structure:
+For install/log scenes, use terminal symbols and flowing CLI text—not UI checklist cards:
 
 ```txt
 ~ $ codex skills load carousel-qa
 
-        ██████╗  █████╗
         QA CHECK LOADED
 
         ( + Welcome to Carousel QA )
@@ -56,145 +64,92 @@ Use terminal symbols and real CLI structure:
 ◇ skill added: slide-fit-checker ✓
 ◇ skill added: remotion-frame-guard ✓
 ◇ skill added: export-reviewer
-◇ skill added: final-qa-runner
 
 ✓ carousel QA skill ready
 ```
 
-Required for this pattern:
-- Prompt starts with `~ $ ` or project path + `$`.
+Required:
+
+- Prompt starts with `~ $ ` or a project path plus `$`.
 - Command types character-by-character.
-- Use `┌` for section openers when helpful.
-- Use `◇` as the line prefix for install/progress rows.
-- Use inline trailing `✓` after completed rows.
-- Use plain flowing terminal text, not card rows, checkboxes, pills, status chips, or rounded checklist components.
-- Use a blinking block cursor `▊` or pipe cursor at the active line.
-- Main output can include ASCII-style logo/word in green with subtle glow.
+- `┌` may open a section.
+- `◇` prefixes install/progress rows.
+- Completed rows use a trailing `✓`.
+- Use plain flowing terminal text, not rounded checklist components.
+- Use a blinking `▊` or pipe cursor at the active line.
+- A large ASCII/terminal word may fade and scale in using flat text color only—never glow.
 
 Avoid:
-- Checkbox UI on the left.
-- Big check icons as separate components.
-- Emoji.
-- Sans-serif UI lists.
-- Dividers, card backgrounds, or dashboards inside the terminal.
+
+- Checkbox UI or separate oversized check icons.
+- Emoji and sans-serif UI lists inside the terminal.
+- Pills, status chips, dividers, dashboards, or nested card rows for terminal logs.
 - Random fake code dumps.
+- Dense illegible logs used as decorative texture.
 
-## Perspective/motion standard
+## Perspective and motion
 
-The approved terminal install style is not just color changes. The **window itself** moves like a floating screen:
-
-- Terminal slides in from bottom with 3D perspective.
-- Use `perspective(...) rotateX(18deg-22deg)` and a slight `rotateY` oscillation or directional tilt.
-- Keep the terminal readable and mostly front-facing; the tilt should feel premium, not warped.
-- Add subtle scale/fade on entry, then a small settling movement.
-- End state holds cleanly for 20-30 frames.
+- Build the terminal in the same connected camera world as supporting objects.
+- Enter with controlled perspective such as `perspective(...) rotateX(18deg–22deg)` and a slight directional `rotateY`.
+- Keep it readable and mostly front-facing; the tilt must feel physical, not warped.
+- Use subtle scale/fade and a restrained settle.
+- End with a clean 20–30 frame hold.
+- Drive motion with `useCurrentFrame()`, `spring()`, and `interpolate()`; no CSS animation.
+- Type commands at roughly one frame per character where practical.
+- Stagger CLI rows by 6–12 frames and reveal trailing checks after each line.
+- Do not add glow pulses, color pulses, scanline flashes, or decorative light sweeps.
 
 ## Reusable patterns
 
-### 1. Authentic skill install / loaded skill
+### Authentic skill install
 
-Use for Claude Skills, Codex setup, MCP install, agent bootstrapping.
+1. Terminal enters with controlled perspective.
+2. A real-looking command types in.
+3. A large flat ASCII/terminal word appears: `LOADED`, `VERIFY`, or `DEPLOY`.
+4. CLI rows reveal using `◇ ... ✓`.
+5. One concise success line finishes the action.
 
-Sequence:
-1. Terminal window enters from bottom with perspective/tilt.
-2. Command types in: `codex skills load research-router` or `claude skill install content-engine`.
-3. ASCII/large green keyword appears: `LOADED`, `ARCHIVE`, `VERIFY`, `DEPLOY`.
-4. Optional welcome pill rendered as terminal-looking text, not a UI pill: `( + Welcome to Archive Skills )`.
-5. CLI lines reveal top-down using `◇ skill added: ...` and trailing `✓`.
-6. End with one readable success line: `✓ workflow ready`.
+### Command → generated output
 
-### 2. Command -> generated cards
+1. Command types in.
+2. A restrained flat status line appears.
+3. Two or three output objects reveal.
+4. Output objects may use cards only because generated structured output is the point; use neutral materials and one restrained accent.
 
-Use when showing AI producing structured output like personas, hooks, briefs, or outreach steps.
+### Agent run / verification log
 
-Sequence:
-1. Terminal command types in.
-2. Green status line appears.
-3. Reveal 2-3 dark output cards left-to-right or bottom-up.
-4. Cards have green icon/avatar, green title, 1 short muted body line.
+1. Type a plausible command such as `codex run "fix checkout bug"`.
+2. Reveal realistic actions: reading, reproducing, editing, testing.
+3. End with `✓ diff ready for review` or another truthful state.
 
-This pattern can use cards because the point is generated output. Do not use cards for pure terminal install/log scenes.
+Never invent product capabilities or claim tests passed unless the supplied story requires that exact illustrative state.
 
-### 3. Agent run / verification log
-
-Use for Codex or Claude Code doing work.
-
-Sequence:
-1. Command: `codex run "fix checkout bug"`.
-2. Realistic log rows:
-   - `◇ reading repository map ✓`
-   - `◇ reproducing failing test ✓`
-   - `◇ editing checkout handler ✓`
-   - `◇ running npm test`
-3. End with `✓ diff ready for review` or `✓ tests passed`.
-
-## Motion rules
-
-- Use `useCurrentFrame()`, `spring()`, and `interpolate()`. No CSS transitions for render-critical motion.
-- Type commands at about 1 frame per character when possible.
-- Stagger CLI line reveals by 6-12 frames.
-- Reveal trailing `✓` a few frames after each line appears.
-- ASCII/logo word should fade/scale in with subtle glow pulse, not bounce wildly.
-- Tiny scanline/noise overlay is okay at very low opacity.
-- End state should hold for at least 20-30 frames for preview capture.
-
-## Mobile clarity rules
+## Mobile clarity
 
 - One primary idea per insert.
-- Big readable terminal word or readable final success line.
-- Tiny log text may be texture, but the main message cannot depend on it.
-- Prefer terminal authenticity over fake product screens.
-- No random arrows/cursors/triangles unless they explain a step.
-- Do not show dense real code unless the slide is explicitly about code.
+- The main command, terminal word, or success state must remain readable at phone size.
+- 4:3 inserts must be legible when occupying roughly half of a 9:16 frame.
+- Tiny logs cannot carry the main message.
+- Use no redundant narration text; real commands, filenames, UI strings, and verified output belong on screen.
 
-## Professional brief requirements
+## First-pass rejection gate
 
-When briefing an agent to build one of these, use a detailed scene-spec style prompt. Include:
-- Exact canvas, FPS, duration, output path.
-- Visual goal and reference examples.
-- Scene-by-scene timing in frames.
-- Exact command text, ASCII/hero word, log lines, final success line.
-- Palette, fonts, terminal symbols, and explicit avoid-list.
-- Motion details: perspective, rotateX/rotateY, spring/fade/scale, type speed, stagger timing.
-- Validation: typecheck, render, ffprobe, frame/contact-sheet inspection.
+Do not deliver until every answer is “no”:
 
-## Brief template
+1. Was format or background left unconfirmed?
+2. Is there any neon, glow, radial color wash, fluorescent green, or cyan-purple treatment?
+3. Does the terminal look like a checklist, dashboard, glass card, or generic AI template?
+4. Is the scene dark only because a terminal exists rather than because the user chose dark?
+5. Is essential text unreadable at the destination size?
+6. Are CLI structure, product identity, or output claims fake when authentic material exists?
+7. Does the result miss the approved examples’ spacing, restraint, and motion quality?
 
-```md
-Create a Remotion video (1440x1080, 30fps, 5s / 150 frames) for a carousel insert.
-Style: dark premium Mac terminal, matching approved examples in `assets/examples/terminal-install.mp4` and screenshot/reference.
+Revise privately until the gate passes.
 
-Scene — Terminal install (150 frames)
-- Terminal window with macOS traffic-light dots, title `archive@skills`, body #0d0d0d, title bar #1f1f1f.
-- Window enters from bottom during frames 0-24 with perspective rotateX 20deg and slight rotateY oscillation, then settles while staying readable.
-- Type command from frames 12-55 at ~1 frame/char: `~ $ codex skills load carousel-qa`.
-- After typing, show large green ASCII/terminal word centered: `LOADED`.
-- Show terminal-looking welcome line: `( + Welcome to Carousel QA )`.
-- Reveal CLI lines progressively using exact terminal symbols, no UI checkboxes:
-  `┌ installing carousel-qa...`
-  `◇ skill added: brand-rules ✓`
-  `◇ skill added: slide-fit-checker ✓`
-  `◇ skill added: remotion-frame-guard ✓`
-  `◇ skill added: export-reviewer ✓`
-- Final line: `✓ carousel QA skill ready`.
-- Use white for command, green for output, muted gray title. No cards, no checklist components, no emoji.
-- Add blinking cursor at active/final line. Hold final state frames 120-150.
+## QA and delivery
 
-Validate with `npx tsc --noEmit`, render MP4, and inspect a frame/contact sheet.
-```
-
-## Carousel integration
-
-- Remotion is only the visual insert; do not redesign the surrounding slide.
-- Render at the exact insert aspect ratio/frame size whenever possible.
-- If the slide frame uses rounded corners, keep important content away from the edges.
-- Check the first frame: key text should already be acceptable or intentionally blank for motion. Avoid first-frame nonsense if the design tool exports a preview frame.
-- Each carousel slide gets a distinct action/content state; repeated terminal shells are okay, repeated text/action is not.
-
-## Quality gate
-
-Before delivery:
-- Typecheck/build or render a frame/video.
-- Inspect the rendered output/contact sheet.
-- Confirm: readable hero text, no clipping, terminal uses real CLI symbols, window has intended perspective movement, no generic filler, clean end hold.
-- Deliver the MP4 and include the render command.
+1. Typecheck/build or render the smallest meaningful validation.
+2. Render stills for command entry, primary output, and end hold.
+3. Compare against the approved terminal examples.
+4. Inspect the MP4 for clipping, weak perspective, tiny text, generic filler, any glow/neon, and weak end frames.
+5. Deliver the MP4 with dimensions, duration, exact render command, and editor placement note.

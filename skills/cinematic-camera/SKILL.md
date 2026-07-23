@@ -1,47 +1,46 @@
 ---
-name: cinematic-camera
-description: Continuous-scene camera-rig style and approved-reference review process for Remotion motion graphics.
+name: "cinematic-camera"
+description: "Continuous-scene Remotion camera system with mandatory intake, approved-reference review, anti-neon rules, and first-pass QA."
 ---
 
 # Cinematic Camera
 
-## Example output
+Use with `remotion-best-practices` and `motion-graphics`. Build one connected world and move a shared camera through it instead of popping disconnected panels into a void.
 
-Clips built by an agent following this skill — one continuous world, a keyframed camera traveling through it (click for full MP4):
+## Mandatory intake
 
-<p>
-  <a href="../../examples/openmontage-hook.mp4"><img src="../../previews/openmontage-hook.gif" alt="Logo-driven hook with continuous camera" width="24%"/></a>
-  <a href="../../examples/smartlead-prewarmed-burn.mp4"><img src="../../previews/smartlead-prewarmed-burn.gif" alt="Cinematic product story" width="43%"/></a>
-</p>
+Before planning or coding, follow the `motion-graphics` intake gate. If missing, ask:
 
-A movement system for Remotion graphics: instead of disconnected panels popping in and out of a void, build one continuous scene and move a camera through it. Use for most renders unless the request explicitly calls for a static composition.
+> Which format do you want: 4:3 half-screen Instagram insert or 9:16 full-screen Instagram? And which background: warm light, clean dark, light grid, or dark grid?
 
-## Approved-reference gate
+Do not silently default to 9:16 or dark. If the user delegates the choice, use warm light.
 
-Complete this before planning or coding:
+## Absolute visual ban
 
-1. Look at the latest 3–5 approved renders relevant to the same project, series, product, aspect ratio, or visual idea.
-2. Open the source compositions and inspect their camera keyframes, timing, spacing, typography, colors, density, entrances, exits, and end holds.
-3. Inspect representative frames or the actual renders when available. Filenames alone are not enough.
-4. Inventory real product assets in `public/`: logos, mascots, screenshots, recordings, footage, and prior outputs. Prefer authentic assets over CSS placeholders or invented marks.
-5. Write a short beat map that explains how the new clip continues the approved visual system.
-6. If no relevant approved reference exists, say so and plan the new direction before rendering.
+This skill never introduces neon, glow, bloom, luminous edges, colored shadows, gradient orbs, radial color washes, cyan-purple gradients, glassmorphism, or cyberpunk lighting. Camera movement cannot turn a restrained scene into a vibe-coded AI demo. Product accents remain flat and restrained.
 
-Do not begin implementation from generic defaults when an approved project-specific system exists. Recent approved work is the baseline, not optional inspiration.
+## Mandatory approved-reference gate
 
-Reference priority:
+Complete before planning or coding:
 
-1. Same project and same video.
-2. Same product or series.
-3. Same aspect ratio and use case.
-4. Other recently approved renders.
-5. Generic defaults only when no approved reference applies.
+1. Inspect the latest 3–5 approved renders relevant to the same project, product, aspect ratio, placement, or visual mechanism.
+2. Open source compositions and inspect camera keyframes, timing, spacing, typography, colors, density, entrances, exits, and end holds.
+3. Inspect actual clips or representative frames; filenames alone are insufficient.
+4. Inventory authentic assets: logos, mascots, screenshots, recordings, footage, and prior outputs.
+5. Write a short beat map explaining how the clip continues the approved system.
+6. If no project reference exists, use the locked fallback: warm off-white physical/editorial world, dark ink, muted neutrals, one restrained flat brand accent, neutral shadows, and zero decorative effects.
+
+Reference priority: same video → same product/series → same aspect ratio/use case → other approved repository examples → locked fallback.
+
+Canonical gallery: `https://github.com/Liamrjohnston/remotion-motion-graphics-skill`
+
+Recent approved work is the baseline, not optional inspiration. Do not invent a new aesthetic for novelty.
 
 ## Core idea
 
-Build one continuous scene—a world larger than the viewport—and move a camera through it. The viewer travels through the idea: open tight on an action, reveal its context, move to the contrast or payoff, then settle.
+Build one world larger than the viewport. Open tight on an action, hold while it completes, reveal context, travel to the contrast/payoff, then settle.
 
-Avoid disconnected panels appearing independently in a void. Panels may exist, but they should share one world and camera, with meaningful spatial relationships.
+Panels may exist, but they must share a world and meaningful spatial relationship. Avoid disconnected cards appearing independently in empty space.
 
 ## Camera rig
 
@@ -53,14 +52,17 @@ const KEY_T = [0, 46, 62, 78, 96, 132, 174, TOTAL_FRAMES];
 
 const fx = interpolate(frame, KEY_T, [/* focal x */], {
   easing: ease,
+  extrapolateLeft: 'clamp',
   extrapolateRight: 'clamp',
 });
 const fy = interpolate(frame, KEY_T, [/* focal y */], {
   easing: ease,
+  extrapolateLeft: 'clamp',
   extrapolateRight: 'clamp',
 });
 const z = interpolate(frame, KEY_T, [/* zoom */], {
   easing: ease,
+  extrapolateLeft: 'clamp',
   extrapolateRight: 'clamp',
 });
 
@@ -77,56 +79,65 @@ const z = interpolate(frame, KEY_T, [/* zoom */], {
 </AbsoluteFill>
 ```
 
-- Default canvas: 1080x1920 at 30fps unless the editor requests another format.
-- World width is usually 2–2.5 times the viewport width.
-- Repeat values across adjacent keys to create holds.
-- Camera moves generally take 14–24 frames.
-- End with two nearly identical keys for a clean editor hold.
-- Keep the camera, cursor, impact effects, and connected panels in the same world coordinate system.
+- Dimensions come from the confirmed format, never a hidden default.
+- World width is usually 2–2.5 times viewport width.
+- Repeated adjacent keys create holds.
+- Camera moves usually take 14–24 frames.
+- End with two nearly identical keys for a stable editor hold.
+- Camera, cursor, effects, and connected objects remain in one coordinate system.
 
-## Choreography grammar
+## Choreography
 
 1. Open tight on something already moving.
 2. Hold while the primary action completes.
-3. Reveal that the action belongs to a larger system.
-4. Whip-pan or travel to the contrast/payoff.
-5. Pull out while supporting elements finish in staggered waves.
+3. Reveal its larger system.
+4. Travel to the contrast/payoff.
+5. Pull out while supporting objects finish in staggered sequence.
 6. Settle for a clean cut.
 
 Rules:
 
-- Camera moves to the action; the action happens during the hold.
+- Camera moves to the next action; action completes during the hold.
 - One primary action per beat.
-- Use micro-motion during holds: typing, ticking, pulsing, playback, progress, or cursor movement.
+- Use micro-motion only to show state: typing, ticking, checking, playback, progress, cursor movement.
 - Prefer continuous transformation over scene replacement.
-- Clicks use a short press, ripple, and visible state change.
-- Motion must explain the script beat, not merely decorate it.
+- Prefer smooth travel over frantic whips.
+- Motion explains causality; it never compensates for a weak concept.
 
-## Authenticity and identity
+## Authenticity and text
 
-- Use real logos, mascots, footage, screenshots, recordings, or output files when available.
-- Do not substitute colored squares, generic landscapes, invented marks, or fake UI when authentic assets exist.
-- Match the product's established visual identity before applying generic defaults.
-- Reuse the project's existing components and camera language when appropriate.
-- Product names, filenames, counters, progress, and real UI text are allowed. Do not repeat narrated sentences.
+- Use real logos, footage, screenshots, recordings, UI, and verified data when available.
+- Never substitute generic colored squares, fake marks, invented UI, or fake metrics.
+- Product names, filenames, counters, commands, progress, and real UI text are allowed.
+- Do not repeat narrated sentences or add explanatory badges because a frame feels empty.
 
-## Mandatory QA before delivery
+## First-pass rejection gate
 
-1. Render representative stills for the opening, each major camera destination, the transition/impact, and the payoff.
-2. Compare those frames beside the approved references for framing, density, identity, and polish.
-3. Verify every important logo and product asset is real and readable.
-4. Verify camera moves follow hold → move → hold and the action is not hidden during a whip.
-5. Render the full review MP4.
-6. Inspect the full motion pass enough to catch lingering overlays, empty transitions, cropped assets, dead frames, or weak end holds.
-7. Deliver only when it looks like the same visual system as the approved references.
+Do not show a render until every answer is “no”:
 
-If the first pass misses the reference standard, revise before showing it.
+1. Was format or background unconfirmed?
+2. Is there any neon, glow, colored lighting, gradient wash, glass panel, or vibe-coded AI treatment?
+3. Is the scene a set of disconnected generic cards in a void?
+4. Is dark used without the user choosing it or an approved reference requiring it?
+5. Does camera movement decorate instead of guiding causality?
+6. Are authentic assets missing when available?
+7. Are essential elements unreadable at the chosen Instagram placement?
+8. Does the result fail to match approved reference spacing, density, materials, and motion rhythm?
+
+Revise privately until the gate passes.
+
+## QA and delivery
+
+1. Render stills for the opening, each camera destination, transition, payoff, and end hold.
+2. Compare beside approved references for framing, density, identity, material restraint, and polish.
+3. Verify authentic assets remain readable.
+4. Verify hold → move → hold and no action is hidden during travel.
+5. Inspect the full MP4 for empty travel, crops, dead frames, generic filler, neon/glow, and weak end holds.
+6. Deliver only when it looks like the same approved visual system.
 
 ## Technical constraints
 
-- Drive render-critical motion with `useCurrentFrame()`, `spring()`, and `interpolate()`.
-- No CSS transitions or keyframes.
+- Drive motion with `useCurrentFrame()`, `spring()`, and `interpolate()`; no CSS animation.
 - `interpolate()` input ranges must be strictly increasing.
-- Keep worlds moderate in size; large blurred or shadowed layers can slow renders.
+- Keep worlds moderate; large blurred/shadowed layers are expensive and usually violate the visual rules.
 - Use tabular numerals for ticking data.
-- Follow the `motion-graphics` skill and the official Remotion best-practices skill alongside this one.
