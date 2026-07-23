@@ -37,7 +37,7 @@ else
     exit 1
   fi
   bold "▸ Scaffolding a new Remotion project in ./${DIR}"
-  npx create-video@latest --yes --blank --no-tailwind "$DIR"
+  npx create-video@latest --yes --blank --no-tailwind "$DIR" </dev/null
   cd "$DIR"
 fi
 
