@@ -176,6 +176,26 @@ npx skills add liamrjohnston/remotion-motion-graphics-skill -a claude-code -y
 npx skills add liamrjohnston/remotion-motion-graphics-skill --skill cinematic-camera
 ```
 
+### Update to the newest version
+
+From the project where the skills are installed:
+
+```bash
+npx skills update -y
+```
+
+If you installed them globally:
+
+```bash
+npx skills update -g -y
+```
+
+To update only this repository's four skills:
+
+```bash
+npx skills update motion-graphics cinematic-camera terminal-inserts article-highlights -y
+```
+
 <details>
 <summary><b>Manual install</b></summary>
 
